@@ -13,5 +13,5 @@ $.ajax({
         client_secret:" "
     }
 }) .done(function(user){
-  console.log(user);
+  $("#profile").html(`${user.name}` `${user.avatar_url}`)
 });
