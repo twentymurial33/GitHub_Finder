@@ -7,11 +7,21 @@ $(function() {
 })
 
 $.ajax({
-    url:"https://api.github.com/users/" +username,
+    url:"https://api.github.com/users/",
     data:{
         client_id:" ",
         client_secret:" "
     }
 }) .done(function(user){
-  $("#profile").html(`${user.name}` `${user.avatar_url}`)
+    $.ajax({
+url:"https://api.github.com/users/" +username +'/repos',
+data:{
+    client_id:"",
+    client_secret:""
+}
+    }).done(function(repos){
+        console.log(repos);
+
+    });
+  $("#profile").html(`${user}` `${user.avatar_url}`)
 });
